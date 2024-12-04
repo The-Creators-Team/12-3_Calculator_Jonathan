@@ -11,37 +11,20 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.jonathansnidercalcuatlor.databinding.ActivityMainBinding
 import com.example.jonathansnidercalcuatlor.ui.theme.JonathanSniderCalcuatlorTheme
 
 class MainActivity : ComponentActivity() {
+
+    private var calcInstance=CalculatorClass()
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            JonathanSniderCalcuatlorTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
-        }
-    }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        //var test=calcInstance.performEquation(2,3,CalculatorClass.EquationEnum.ADD)
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    JonathanSniderCalcuatlorTheme {
-        Greeting("Android")
     }
 }
