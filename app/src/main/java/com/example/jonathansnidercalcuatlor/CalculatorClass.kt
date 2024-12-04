@@ -1,26 +1,33 @@
 package com.example.jonathansnidercalcuatlor
 
+import android.media.audiofx.DynamicsProcessing.Eq
+
 class CalculatorClass {
     enum class EquationEnum {
         DIVIDE, MULTIPLY,SUBTRACT,ADD
     }
-    fun performEquation(firstNumber: Int,secondNumber: Int,equationToPerform: EquationEnum): Int
+    var equationEnum=EquationEnum.DIVIDE
+    fun performEquation(firstNumber: Float?,secondNumber: Float?,equationToPerform: EquationEnum): String
     {
+        if(firstNumber==null || secondNumber==null)
+        {
+            return "ERROR"
+        }
         return when(equationToPerform){
             EquationEnum.DIVIDE -> {
-                firstNumber/secondNumber
+                (firstNumber/secondNumber).toString()
             }
 
             EquationEnum.MULTIPLY -> {
-                firstNumber*secondNumber
+                (firstNumber*secondNumber).toString()
             }
 
             EquationEnum.SUBTRACT -> {
-                firstNumber-secondNumber
+                (firstNumber-secondNumber).toString()
             }
 
             EquationEnum.ADD -> {
-                firstNumber+secondNumber
+                (firstNumber+secondNumber).toString()
             }
         }
     }
